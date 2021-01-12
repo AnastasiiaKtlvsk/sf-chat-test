@@ -9,18 +9,7 @@
       <span id="  " style="display:none"></span>
 
       <div class="btn btn-box btn-acid-yellow" id="secondaryButton" onclick="document.getElementsByClassName('uiButton')[0].click()" type="button" value="Чат">Онлайн Чат</div>
-  
 
-      <div class="embeddedServiceHelpButton" style="display: none;">
-        <div class="helpButton">
-            <button class="uiButton helpButtonEnabled" href="javascript:void(0)" onclick="console.log('chat button clicked');" >
-                <span class="embeddedServiceIcon" aria-hidden="true" data-icon="" style="display: inline-block;"></span>
-                <span class="helpButtonLabel" id="helpButtonSpan" aria-live="polite" aria-atomic="true">
-                    <span class="assistiveText">Live chat:</span><span class="message">Есть вопросы?</span>
-                </span>
-            </button>
-        </div>
-    </div>
 
     </body>
   <head>
@@ -41,6 +30,9 @@
             border-radius: 1px;
         }
 
+        .embeddedServiceHelpButton {
+            display: none;
+        }
 				 .embeddedServiceHelpButton .helpButton .uiButton {
 					background-color: #F7E918;
 					font-family: "Arial", sans-serif;
