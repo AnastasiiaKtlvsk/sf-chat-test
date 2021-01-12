@@ -8,7 +8,7 @@
       
       <span id="  " style="display:none"></span>
 
-      <div class="btn" id="secondaryButton" onclick="document.getElementsByClassName('uiButton')[0].click()" type="button" value="Чат">Онлайн Чат</div>
+      <div class="btn btn-box btn-acid-yellow chatSFButton" id="secondaryButton" onclick="document.getElementsByClassName('uiButton')[0].click()" type="button" value="Чат">Онлайн Чат</div>
   
 
       <div class="embeddedServiceHelpButton" style="display: block;">
@@ -26,6 +26,21 @@
   <head>
 
       <style type='text/css'>
+        .btn-box {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            width: 100%;
+        }
+
+        .btn-acid-yellow {
+            color: #000;
+            border: 1px solid #f8ff13;
+            background-color: #f8ff13;
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
+            border-radius: 1px;
+        }
+
 				 .embeddedServiceHelpButton .helpButton .uiButton {
 					background-color: #F7E918;
 					font-family: "Arial", sans-serif;
@@ -173,6 +188,34 @@
               initESW('https://service.force.com');
           }
 
+
+
+          
+          function funcRemoveChatButton2() {
+            if(document.querySelector('.uiButton') && document.getElementById('secondaryButton')) {
+            document.getElementById('secondaryButton').click();
+                  var waitForButtonEnabled = function(){
+                  var observer = new MutationObserver(function (mutations, me) {
+                  var button = document.getElementsByClassName('uiButton helpButtonEnabled')[0];
+                  if (button) {
+                      me.disconnect(); 
+                      button.click();
+                      return;
+                  }
+                  });
+                  observer.observe(document, {
+                          childList: true,
+                          subtree: true
+                      });
+                  }
+              waitForButtonEnabled();
+            if(funcRemoveChatButton2Timeout)
+            clearInterval(funcRemoveChatButton2Timeout);  
+             }
+             else {
+          };
+          }
+           funcRemoveChatButton2Timeout = setInterval(funcRemoveChatButton2, 10);  
           
       </script>
   </head>
