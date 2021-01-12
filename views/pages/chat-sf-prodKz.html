@@ -1,3 +1,6 @@
+
+<!--<div type="button" id="secondaryButton" class="btn btn-box btn-acid-yellow chatSFButton" onclick="document.getElementsByClassName('uiButton')[0].click()" value="Чат">Онлайн Чат</div>
+
 <style type="text/css"> 
  .embeddedServiceHelpButton {
      display: none !important;
@@ -145,29 +148,24 @@ var initESW=function(gslbBaseURL) {
 };
  if (!window.embedded_svc) {    
     var s = document.createElement('script');           
-    s.setAttribute('src', 'https://parimatch--staging.my.salesforce.com/embeddedservice/5.0/esw.min. js');        
-    s.onload = function() {                
-        initESW(null);            
-    };            
-    document.body.appendChild(s);        
-} else {            
-    initESW('https://service.force.com');                    
-}    
+     s.setAttribute('src', 'https://parimatch--staging.my.salesforce.com/embeddedservice/5.0/esw.min. js');        
+         s.onload = function() {                initESW(null);            };            document.body.appendChild(s);        } else {            initESW('https://service.force.com');                    }    
 
  var waitForButtonEnabled = function(){
     var observer = new MutationObserver(function (mutations, me) {
     var button = document.getElementsByClassName('uiButton helpButtonEnabled')[0];
     if (button) {
         me.disconnect(); 
+        //button.click();
         return;
     }
- });
+    });
 
     observer.observe(document, {
             childList: true,
             subtree: true
         });
     }
-    waitForButtonEnabled();
 
-</script>
+waitForButtonEnabled();
+</script>-->
