@@ -6,7 +6,10 @@
       Click the button to start a chat.
       <br />
       <span id="  " style="display:none"></span>
-  </body>
+
+      <div class="btn" id="secondaryButton" onclick="document.getElementsByClassName('uiButton')[0].click()" type="button" value="Чат">Онлайн Чат</div>
+  
+    </body>
   <head>
 
       <style type='text/css'>
@@ -59,8 +62,20 @@
 			}
       </style>
 
+
       <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
       <script type="text/javascript">
+
+        <div class="embeddedServiceHelpButton" style="display: block;">
+            <div class="helpButton">
+                <button class="uiButton helpButtonEnabled" href="javascript:void(0)">
+                    <span class="embeddedServiceIcon" aria-hidden="true" data-icon="" style="display: inline-block;"></span>
+                    <span class="helpButtonLabel" id="helpButtonSpan" aria-live="polite" aria-atomic="true">
+                        <span class="assistiveText">Live chat:</span><span class="message">Есть вопросы?</span>
+                    </span>
+                </button>
+            </div>
+        </div>
 
         /**
 			here you have to set the AccountID from the login user
