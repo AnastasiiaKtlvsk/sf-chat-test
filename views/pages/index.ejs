@@ -58,13 +58,9 @@
 			}
       </style>
 ​
-      <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+      <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'/>
       <script type="text/javascript">
-​
-        /**
-			here you have to set the AccountID from the login user
-			*/
-			var accountId = new URLSearchParams(window.location.search).get('accountID');
+			var accountId = new URLSearchParams(window.location.search).get('accountID'); 
       
           var waitForButtonEnabled = function(){
               var observer = new MutationObserver(function (mutations, me) {
@@ -84,8 +80,6 @@
       
           waitForButtonEnabled();
       
-      </script>
-      <script type='text/javascript'>
 ​
           var chatUuid;
           
@@ -157,7 +151,5 @@
       </script>
   </head>
   
-​
-​
-​
+​​
 </html>
