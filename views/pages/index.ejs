@@ -1,38 +1,14 @@
-
 <html>
   <body>
       <h1>Let’s start chatting...</h1>
       <br />
       Click the button to start a chat.
       <br />
-      
       <span id="  " style="display:none"></span>
-
-      <div class="btn btn-box btn-acid-yellow" id="secondaryButton" onclick="document.getElementsByClassName('uiButton')[0].click()" type="button" value="Чат">Онлайн Чат</div>
-
-
-    </body>
+  </body>
   <head>
-
+​
       <style type='text/css'>
-        .btn-box {
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            width: 100%;
-        }
-
-        .btn-acid-yellow {
-            color: #000;
-            border: 1px solid #f8ff13;
-            background-color: #f8ff13;
-            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.5);
-            border-radius: 1px;
-        }
-
-        .embeddedServiceHelpButton {
-            display: none !important;
-        }
 				 .embeddedServiceHelpButton .helpButton .uiButton {
 					background-color: #F7E918;
 					font-family: "Arial", sans-serif;
@@ -79,24 +55,12 @@
 				left: 50%;
 				margin-top: -100px;
 				margin-left: -200px;
-            }
-            
-            .modalContainer {
-                height: calc(100% - 56px) !important;
-             }  
-            
-            /*.chasitorInputWrapper {
-                height: 85px !important;
-             }  */
-
+			}
       </style>
-
-
+​
       <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
       <script type="text/javascript">
-
-      
-
+​
         /**
 			here you have to set the AccountID from the login user
 			*/
@@ -107,7 +71,7 @@
               var button = document.getElementsByClassName('uiButton helpButtonEnabled')[0];
               if (button) {
                   me.disconnect(); 
-                  //button.click();
+                  button.click();
                   return;
               }
               });
@@ -122,7 +86,7 @@
       
       </script>
       <script type='text/javascript'>
-
+​
           var chatUuid;
           
           window.addEventListener('hashchange', function(e){
@@ -133,32 +97,32 @@
           var initESW = function(gslbBaseURL) {
               embedded_svc.settings.displayHelpButton = true; //Or false
               embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-
+​
               
               embedded_svc.settings.enabledFeatures = ['LiveAgent'];
               embedded_svc.settings.entryFeature = 'LiveAgent';
               embedded_svc.settings.autoOpenPostChat = true;
-
+​
               
               embedded_svc.settings.extraPrechatFormDetails = 
                   (accountId) ?[
-
+​
                   {"label":"AccountID", "transcriptFields": ["PreChat_Form_AccountID__c"], "value": accountId},
                   {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false},
                   {"label":"Is Logged", "transcriptFields": ["Is_Logged__c"], "value" : "true"}] :
-
+​
                   [{"label":"Email",       "transcriptFields": ["PreChat_Form_Email__c"]},
                   {"label":"Phone",       "transcriptFields": ["PreChat_Form_Phone__c"]},
                   {"label":"Last Name",   "transcriptFields": ["PreChat_Form_Name__c"]},
                   {"label":"Subject",     "transcriptFields": ["Prechat_Form_Subject__c"]},
                   {"label":"Start Url",   "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false}                    
               ]; 
-
+​
               embedded_svc.addEventHandler("onChatEstablished", function(data) {
                   console.log("onChatEstablished event was fired.  liveAgentSessionKey was " + data.liveAgentSessionKey);
                       chatUuid = data.liveAgentSessionKey;
               });
-
+​
               embedded_svc.init(
                   'https://parimatch--staging.my.salesforce.com',
                   'https://staging-parimatch.cs102.force.com',
@@ -177,7 +141,7 @@
               );
           };
           
-
+​
           if (!window.embedded_svc) {
               var s = document.createElement('script');
               s.setAttribute('src', 'https://parimatch--staging.my.salesforce.com/embeddedservice/5.0/esw.min.js');
@@ -188,41 +152,12 @@
           } else {
               initESW('https://service.force.com');
           }
-
-
-
-
-       /*   function funcRemoveChatButton2() {
-            if(document.querySelector('.uiButton') && document.getElementById('secondaryButton')) {
-            document.getElementById('secondaryButton').click();
-                  var waitForButtonEnabled = function(){
-                  var observer = new MutationObserver(function (mutations, me) {
-                  var button = document.getElementsByClassName('uiButton helpButtonEnabled')[0];
-                  if (button) {
-                      me.disconnect(); 
-                      button.click();
-                      return;
-                  }
-                  });
-                  observer.observe(document, {
-                          childList: true,
-                          subtree: true
-                      });
-                  }
-              waitForButtonEnabled();
-            if(funcRemoveChatButton2Timeout)
-            clearInterval(funcRemoveChatButton2Timeout);  
-             }
-             else {
-          };
-          }
-           funcRemoveChatButton2Timeout = setInterval(funcRemoveChatButton2, 10);  */
+​
           
       </script>
   </head>
   
-
-
-
+​
+​
+​
 </html>
-
