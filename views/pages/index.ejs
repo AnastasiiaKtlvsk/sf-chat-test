@@ -295,10 +295,10 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 
 </style>
 <script type="text/javascript">
-  	var accountId = '{{userID}}';
+    var accountId  = new URLSearchParams(window.location.search).get('accountID');
     accountId = (accountId == "undefined") ? null : accountId;
-    var language = document.querySelector('html').getAttribute('lang');
-	language = (language == 'en') ? 'en-US' : language;
+    var language =  new URLSearchParams(window.location.search).get('language');//document.querySelector('html').getAttribute('lang');
+	language = (language == "en") ? 'en-US' : language;
 	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
