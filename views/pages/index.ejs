@@ -12,72 +12,6 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 	</style>
-    <script type="text/javascript" >
-        function g() {
-            this.connection = new k(this);
-            this.fileTransfer = new l;
-            this.visitorInfo = new n;
-            this.browserSessionInfo = {};
-            this.inviteButton = {};
-            this.hasInvitationsLoaded = !1;
-            b.setDefaultButtonText("LiveAgent", "Chat with an Expert", "Agent Offline", "Live chat:");
-            b.addDefaultSetting("avatarImgURL", "");
-            b.addDefaultSetting("prechatBackgroundImgURL", "");
-            b.addDefaultSetting("waitingStateBackgroundImgURL", "");
-            b.addDefaultSetting("smallCompanyLogoImgURL", "");
-            b.addDefaultSetting("headerBackgroundURL", "");
-            b.addDefaultSetting("extraPrechatInfo", []);
-            b.addDefaultSetting("extraPrechatFormDetails", []);
-            b.addDefaultSetting("agentAvailableOnButtonClick", !1);
-            b.settings.isOfflineSupportEnabled &&
-                (b.settings.offlineSupportMinimizedText = b.settings.offlineSupportMinimizedText || "Contact Us");
-            b.addMessageHandler("liveagent.chatCanceledOnDifferentTab", function() {
-                b.fireEvent("liveagent.chatCanceledOnDifferentTab")
-            });
-            b.addEventHandler("error", this.disconnect.bind(this));
-            b.addEventHandler("sessionDataRetrieved", function(a) {
-                q = embedded_svc.liveAgentAPI.constructChatSettingsEndpointURL();
-                a.CHASITOR_SERIALIZED_KEY ? (b.settings.agentAvailableOnButtonClick = !0, this.ping()) : (embedded_svc.menu || embedded_svc.settings.disableDeploymentDataPrefetch ||
-                    embedded_svc.liveAgentAPI.getChatSettings(), b.loadFeatureScript("Invite", function() {
-                        embedded_svc.liveAgentAPI.getButtonSettings();
-                        document.querySelector("style#inert-style") || b.loadScriptFromDirectory("utils", "inert")
-                    }));
-                this.visitorInfo.initialize(a);
-                return !!a.CHASITOR_SERIALIZED_KEY
-            }.bind(this));
-            b.addEventHandler("beforeCreate", function() {
-                b.settings.visitorInfo = this.visitorInfo.getInfo()
-            }.bind(this));
-            b.addEventHandler("validateInit", function(a) {
-                if ("string" !== typeof a.baseLiveAgentURL) throw Error("Invalid Live Agent chat URL: " +
-                    a.baseLiveAgentURL);
-                if ("string" !== typeof a.baseLiveAgentContentURL) throw Error("Invalid Live Agent content URL: " + a.baseLiveAgentContentURL);
-                if (!this.isButtonId(a.buttonId)) throw Error("Invalid ButtonId Parameter Value: " + a.buttonId);
-                if (!this.isDeploymentId(a.deploymentId)) throw Error("Invalid DeploymentId Parameter Value: " + a.deploymentId);
-                return !0
-            }.bind(this));
-            b.loadStorageScript("Chasitor");
-            b.registerStorageKeys("CHASITOR_SERIALIZED_KEY LA_ESW_CHAT_SCROLL_POSITION LA_ESW_UNSEEN_MESSAGES LA_ESW_SHOW_QUEUE_POSITION LA_VISITOR_INFO LA_ESW_FILE_TOKEN LA_ESW_FILE_UPLOAD_SERVLET_URL CHATBOT_FOOTER_MENU PRECHAT_FORM_DETAILS PRECHAT_ENTITIES".split(" "));
-            "LiveAgent" === b.settings.entryFeature && this.updateButton()
-        }
-        
-        g.prototype.appendInvitationsComponent = function() {
-            var a = document.createElement("div");
-            a.innerHTML = embedded_svc.config.invitation.htmlMarkup;
-            if (embedded_svc.config.invitation.styles) {
-                var c = document.createElement("style");
-                c.type = "text/css";
-                c.charset = "UTF-8";
-                c.innerHTML = embedded_svc.config.invitation.styles;
-                a.appendChild(c)
-            }
-            embedded_svc.settings.targetElement.appendChild(a);
-            embedded_svc.config.invitation.invitationAPIs && (a = document.createElement("script"), a.type = "text/javascript", a.innerHTML =
-                embedded_svc.config.invitation.invitationAPIs, embedded_svc.settings.targetElement.appendChild(a))
-        };
-
-
-    </script>
 <style>
 .chasitorText, .slds-input, .textAreaBox {    
     -webkit-user-select: text !important;
@@ -87,9 +21,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-	.embeddedServiceHelpButton {
-		display: none !important;
-	 }
 	
 	.minimizedContainer {
 		position:fixed !important;
