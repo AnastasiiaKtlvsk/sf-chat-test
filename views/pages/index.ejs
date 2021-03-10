@@ -12,8 +12,7 @@
 	<style>
 		@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
 	</style>
-	<script type="text/javascript" src="https://parimatch--c.visualforce.com/resource/1614610338000/live_chat/live_chat/chat.js"></script>
-<style>
+	<style>
 .chasitorText, .slds-input, .textAreaBox {    
     -webkit-user-select: text !important;
 	user-select: text !important;
@@ -22,9 +21,6 @@
 }
 
 @media screen and (max-width: 1024px) {
-	.embeddedServiceHelpButton {
-		display: none !important;
-	 }
 	
 	.minimizedContainer {
 		position:fixed !important;
@@ -50,6 +46,7 @@
 	}
 }
 
+li.wrapper.chatMessage, 
 li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatMessage,
 li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatBubble.embeddedServiceLiveAgentStateChatFileTransferMessage,
 li.wrapper.embeddedServiceLiveAgentStateChatMessage  {
@@ -294,19 +291,23 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 }
 
 </style>
-<script type="text/javascript">
-  	var accountId = '{{userID}}';
+
+<script type="text/javascript" charset="UTF-8" >
+
+	var accountId = '{{userID}}';;
     accountId = (accountId == "undefined") ? null : accountId;
     var language = document.querySelector('html').getAttribute('lang');
 	language = (language == 'en') ? 'en-US' : language;
+	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
+    embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'Ð§ÐÐ¢ ÐŸÐžÐ”Ð”Ð•Ð Ð–ÐšÐ˜' : 'SUPPORT CHAT';
-    embedded_svc.settings.disabledMinimizedText = (language == 'ru') ? 'Ð§ÐÐ¢ ÐŸÐžÐ”Ð”Ð•Ð Ð–ÐšÐ˜' : 'SUPPORT CHAT';
-    embedded_svc.settings.loadingText = (language == 'ru') ? 'Ð—Ð°Ð³Ñ€ÑƒÐ·ÐºÐ°...' : 'Loading...';
+    embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
+    embedded_svc.settings.disabledMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
+    embedded_svc.settings.loadingText = (language == 'ru') ? 'Загрузка...' : 'Loading...';
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -322,10 +323,12 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
         {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false}
     ];
 
+	embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
+
     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
-    embedded_svc.init(
+ embedded_svc.init(
         'https://parimatch.my.salesforce.com',
         'https://parimatchchat.secure.force.com/surveychat',
             gslbBaseURL,
@@ -353,7 +356,63 @@ if (!window.embedded_svc) {
 } else {
     initESW('https://service.force.com');
 }
-</script>
+
+
+var title = document.title;
+
+document.addEventListener(
+	"setCustomField",
+	function(event) {
+		var detail = event.detail;
+		embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
+		embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
+		embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
+		// Fire startChat callback.
+		event.detail.callback();
+	},
+	false
+);
+
+document.onclick = function(event) {
+  	var tagName = event.target.tagName;
+  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
+		var counter = document.getElementsByClassName("dot")[0];
+		if (counter) {
+			counter.style.visibility = "hidden";
+			document.title = title;
+		}
+  	}
+  	if (event.clientX != 0 && event.clientY != 0 && 
+  		(event.target.getAttribute("data-key") == "paper_clip" || event.target.classList.contains("paperClipButton"))){
+		simulateMouseClick(event.target);
+  	}
+}
+
+function simulateMouseClick(targetNode) {
+    function triggerMouseEvent(targetNode, eventType) {
+        var clickEvent = document.createEvent('MouseEvents');
+        clickEvent.initEvent(eventType, true, true);
+        targetNode.dispatchEvent(clickEvent);
+    }
+    ["mouseover", "mousedown", "mouseup","click"].forEach(function(eventType) { 
+    	console.log('targetNode s' + targetNode );
+    	target = document.getElementsByClassName('paperClipButton')[0];
+        triggerMouseEvent(target, eventType);
+        console.log("simulated");
+    });
+}
+
+document.addEventListener(
+    "setCounter",
+    function(event) {
+      var counter = document.getElementsByClassName("dot")[0];
+      if (counter) {
+        counter.style.visibility = "visible";
+      }
+    },
+    false
+);
+</script> -->
 <!--    <script type="text/javascript" >
         function g() {
             this.connection = new k(this);
