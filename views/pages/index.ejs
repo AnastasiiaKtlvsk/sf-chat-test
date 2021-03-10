@@ -294,6 +294,46 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 
 <script type="text/javascript" charset="UTF-8" >
 
+
+	document.onclick = function(event) {
+	var tagName = event.target.tagName;
+	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
+		var counter = document.getElementsByClassName("dot")[0];
+		if (counter) {
+			counter.style.visibility = "hidden";
+			document.title = title;
+		}
+	}
+}
+
+document.addEventListener(
+		"setCounter",
+		function(event) {
+			var counter = document.getElementsByClassName("dot")[0];
+			if (counter) {
+				counter.style.visibility = "visible";
+			}
+		},
+		false
+);
+
+
+document.addEventListener(
+	"setCustomField",
+	function(event) {
+		var detail = event.detail;
+		embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
+		embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
+		embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
+		// Fire startChat callback.
+		event.detail.callback();
+	},
+	false
+);
+
+var title = document.title;
+
+
 	var accountId = '{{userID}}';;
     accountId = (accountId == "undefined") ? null : accountId;
     var language = document.querySelector('html').getAttribute('lang');
@@ -328,7 +368,7 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
- embedded_svc.init(
+ 	embedded_svc.init(
         'https://parimatch.my.salesforce.com',
         'https://parimatchchat.secure.force.com/surveychat',
             gslbBaseURL,
@@ -357,61 +397,6 @@ if (!window.embedded_svc) {
     initESW('https://service.force.com');
 }
 
-
-var title = document.title;
-
-document.addEventListener(
-	"setCustomField",
-	function(event) {
-		var detail = event.detail;
-		embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
-		embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
-		embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
-		// Fire startChat callback.
-		event.detail.callback();
-	},
-	false
-);
-
-document.onclick = function(event) {
-  	var tagName = event.target.tagName;
-  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
-		var counter = document.getElementsByClassName("dot")[0];
-		if (counter) {
-			counter.style.visibility = "hidden";
-			document.title = title;
-		}
-  	}
-  	if (event.clientX != 0 && event.clientY != 0 && 
-  		(event.target.getAttribute("data-key") == "paper_clip" || event.target.classList.contains("paperClipButton"))){
-		simulateMouseClick(event.target);
-  	}
-}
-
-function simulateMouseClick(targetNode) {
-    function triggerMouseEvent(targetNode, eventType) {
-        var clickEvent = document.createEvent('MouseEvents');
-        clickEvent.initEvent(eventType, true, true);
-        targetNode.dispatchEvent(clickEvent);
-    }
-    ["mouseover", "mousedown", "mouseup","click"].forEach(function(eventType) { 
-    	console.log('targetNode s' + targetNode );
-    	target = document.getElementsByClassName('paperClipButton')[0];
-        triggerMouseEvent(target, eventType);
-        console.log("simulated");
-    });
-}
-
-document.addEventListener(
-    "setCounter",
-    function(event) {
-      var counter = document.getElementsByClassName("dot")[0];
-      if (counter) {
-        counter.style.visibility = "visible";
-      }
-    },
-    false
-);
 </script> -->
 <!--    <script type="text/javascript" >
         function g() {
