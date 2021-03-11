@@ -2,9 +2,9 @@
 <html>
 <head>
 	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+	
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
 </head>
 <body>
@@ -294,6 +294,44 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 <script type="text/javascript" src='https://parimatch--devpro--c.visualforce.com/resource/1615293764000/ChatTextWin1251'></script>
 <script type="text/javascript" charset="UTF-8" >
 
+document.onclick = function(event) {
+  	var tagName = event.target.tagName;
+  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
+		var counter = document.getElementsByClassName("dot")[0];
+		if (counter) {
+			counter.style.visibility = "hidden";
+			document.title = title;
+		}
+  	}
+}
+
+
+var title = document.title;
+
+document.addEventListener(
+    "setCounter",
+    function(event) {
+      var counter = document.getElementsByClassName("dot")[0];
+      if (counter) {
+        counter.style.visibility = "visible";
+      }
+    },
+    false
+);
+
+
+document.addEventListener(
+  "setCustomField",
+  function(event) {
+    var detail = event.detail;
+    embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
+    embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
+    embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
+    event.detail.callback();
+  },
+  false
+);
+
 		var accountId = '{{userID}}';
 		accountId = (accountId == "undefined") ? null : accountId;
 		var language = 'ru';
@@ -355,43 +393,7 @@ if (!window.embedded_svc) {
 } else {
     initESW('https://service.force.com');
 }
-	document.onclick = function(event) {
-  	var tagName = event.target.tagName;
-  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
-		var counter = document.getElementsByClassName("dot")[0];
-		if (counter) {
-			counter.style.visibility = "hidden";
-			document.title = title;
-		}
-  	}
-}
 
-
-var title = document.title;
-
-document.addEventListener(
-    "setCounter",
-    function(event) {
-      var counter = document.getElementsByClassName("dot")[0];
-      if (counter) {
-        counter.style.visibility = "visible";
-      }
-    },
-    false
-);
-
-
-document.addEventListener(
-  "setCustomField",
-  function(event) {
-    var detail = event.detail;
-    embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
-    embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
-    embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
-    event.detail.callback();
-  },
-  false
-);
 	</script>
 
 <!--    <script type="text/javascript" >
