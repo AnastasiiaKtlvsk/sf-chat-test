@@ -333,18 +333,7 @@ document.addEventListener(
 );
 
 
-if (!window.embedded_svc) {
-    var s = document.createElement('script');
-    s.setAttribute('src', 'https://parimatch--c.visualforce.com/resource/1615392897000/ChatMinScript/min.js');
-    s.onload = function() {
-        initESW(null);
-    };
-    document.body.appendChild(s);
-} else {
-    initESW('https://service.force.com');
-}
-
-var embedded_svc;
+var embedded_svc = window.embedded_svc;
 var accountId = '{{userID}}';
 accountId = (accountId == "undefined") ? null : accountId;
 		var language = 'ru';
@@ -396,7 +385,16 @@ accountId = (accountId == "undefined") ? null : accountId;
     );
 };
 
-
+if (!window.embedded_svc) {
+    var s = document.createElement('script');
+    s.setAttribute('src', 'https://parimatch--c.visualforce.com/resource/1615392897000/ChatMinScript/min.js');
+    s.onload = function() {
+        initESW(null);
+    };
+    document.body.appendChild(s);
+} else {
+    initESW('https://service.force.com');
+}
 
 	</script>
 
