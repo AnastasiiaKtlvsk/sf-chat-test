@@ -294,51 +294,47 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 <script type="text/javascript" src='https://parimatch--devpro--c.visualforce.com/resource/1615293764000/ChatTextWin1251'></script>
 <script type="text/javascript" charset="UTF-8" >
 
-document.onclick = function(event) {
-  	var tagName = event.target.tagName;
-  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
-		var counter = document.getElementsByClassName("dot")[0];
-		if (counter) {
-			counter.style.visibility = "hidden";
-			document.title = title;
-		}
-  	}
-}
-
-
-var title = document.title;
-
-document.addEventListener(
-    "setCounter",
-    function(event) {
-      var counter = document.getElementsByClassName("dot")[0];
-      if (counter) {
-        counter.style.visibility = "visible";
-      }
-    },
-    false
-);
-
-
-document.addEventListener(
-  "setCustomField",
-  function(event) {
-    var detail = event.detail;
-    embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
-    embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
-    embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
-    event.detail.callback();
-  },
-  false
-);
-
-
-var embedded_svc = window.embedded_svc;
-var accountId = '{{userID}}';
-accountId = (accountId == "undefined") ? null : accountId;
+		var accountId = '{{userID}}';
+		accountId = (accountId == "undefined") ? null : accountId;
 		var language = 'ru';
 
-		var initESW = function(gslbBaseURL) {
+	document.onclick = function(event) {
+	  	var tagName = event.target.tagName;
+	  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
+			var counter = document.getElementsByClassName("dot")[0];
+			if (counter) {
+				counter.style.visibility = "hidden";
+				document.title = title;
+			}
+	  	}
+	}
+
+	document.addEventListener(
+	    "setCounter",
+	    function(event) {
+	      var counter = document.getElementsByClassName("dot")[0];
+	      if (counter) {
+	        counter.style.visibility = "visible";
+	      }
+	    },
+	    false
+	);
+
+
+	document.addEventListener(
+	  "setCustomField",
+	  function(event) {
+	    var detail = event.detail;
+	    embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
+	    embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
+	    embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
+	    event.detail.callback();
+	  },
+	  false
+	);
+		var title = document.title;
+
+var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
     embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
 	embedded_svc.settings.displayHelpButton = true;
@@ -387,7 +383,7 @@ accountId = (accountId == "undefined") ? null : accountId;
 
 if (!window.embedded_svc) {
     var s = document.createElement('script');
-    s.setAttribute('src', 'https://parimatch--c.visualforce.com/resource/1615392897000/ChatMinScript/min.js');
+    s.setAttribute('src', 'https://parimatch--devpro--c.visualforce.com/resource/1614904885000/ChatMin');
     s.onload = function() {
         initESW(null);
     };
@@ -395,6 +391,8 @@ if (!window.embedded_svc) {
 } else {
     initESW('https://service.force.com');
 }
+
+	</script>
 
 	</script>
 
