@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
 
 </head>
@@ -291,61 +291,61 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 
 </style>
 
-<script type="text/javascript" src='https://parimatch--devpro--c.visualforce.com/resource/1615293764000/ChatTextWin1251'></script>
 <script type="text/javascript" charset="UTF-8" >
 
-		var accountId = '{{userID}}';
-		accountId = (accountId == "undefined") ? null : accountId;
-		var language = 'ru';
 
 	document.onclick = function(event) {
-	  	var tagName = event.target.tagName;
-	  	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
+	var tagName = event.target.tagName;
+	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
+		var counter = document.getElementsByClassName("dot")[0];
+		if (counter) {
+			counter.style.visibility = "hidden";
+			document.title = title;
+		}
+	}
+}
+
+document.addEventListener(
+		"setCounter",
+		function(event) {
 			var counter = document.getElementsByClassName("dot")[0];
 			if (counter) {
-				counter.style.visibility = "hidden";
-				document.title = title;
+				counter.style.visibility = "visible";
 			}
-	  	}
-	}
-
-	document.addEventListener(
-	    "setCounter",
-	    function(event) {
-	      var counter = document.getElementsByClassName("dot")[0];
-	      if (counter) {
-	        counter.style.visibility = "visible";
-	      }
-	    },
-	    false
-	);
+		},
+		false
+);
 
 
-	document.addEventListener(
-	  "setCustomField",
-	  function(event) {
-	    var detail = event.detail;
-	    embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
-	    embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
-	    embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
-	    event.detail.callback();
-	  },
-	  false
-	);
+document.addEventListener(
+	"setCustomField",
+	function(event) {
+		var detail = event.detail;
+		embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
+		embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
+		embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
+		// Fire startChat callback.
+		event.detail.callback();
+	},
+	false
+);
+
+var title = document.title;
+
+
+	var accountId = new URLSearchParams(window.location.search).get('accountID');
+    accountId = (accountId == "undefined") ? null : accountId;
+    var language = 'ru';
 	
-	var title = document.title;
-
-	var embedded_svc = window.embedded_svc;
-
-var initESW = function(gslbBaseURL) {
+	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
     embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
-	embedded_svc.settings.displayHelpButton = true;
+    embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = chatText[0];
-    embedded_svc.settings.disabledMinimizedText = chatText[0];
-    embedded_svc.settings.loadingText = chatText[1];
+    embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
+    embedded_svc.settings.disabledMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
+    embedded_svc.settings.loadingText = (language == 'ru') ? 'Загрузка...' : 'Loading...';
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -366,7 +366,7 @@ var initESW = function(gslbBaseURL) {
     embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
-    embedded_svc.init(
+ 	embedded_svc.init(
         'https://parimatch.my.salesforce.com',
         'https://parimatchchat.secure.force.com/surveychat',
             gslbBaseURL,
@@ -375,7 +375,7 @@ var initESW = function(gslbBaseURL) {
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: '5732p0000000GqZ',
+                buttonId: '5732p0000004Tnn',
                 baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
                 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
@@ -386,7 +386,7 @@ var initESW = function(gslbBaseURL) {
 
 if (!window.embedded_svc) {
     var s = document.createElement('script');
-    s.setAttribute('src', 'https://parimatch--c.visualforce.com/resource/1615392897000/ChatMinScript/min.js');
+    s.setAttribute('src', 'https://parimatch.my.salesforce.com/embeddedservice/5.0/esw.min.js');
     s.onload = function() {
         initESW(null);
     };
@@ -395,9 +395,7 @@ if (!window.embedded_svc) {
     initESW('https://service.force.com');
 }
 
-	</script>
-
-	</script>
+</script>
 
 <!--    <script type="text/javascript" >
         function g() {
