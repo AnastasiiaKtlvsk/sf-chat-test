@@ -337,8 +337,7 @@ document.addEventListener(
 var title = document.title;
 
 	var accountId = new URLSearchParams(window.location.search).get('accountID');
-    var language = new URLSearchParams(window.location.search).get('language');
-	language = (language == 'en') ? 'en-US' : language;
+    var language = 'en-US';
 	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
@@ -346,9 +345,9 @@ var title = document.title;
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = (language == 'hi') ? 'चैट का समर्थन करें' : 'SUPPORT CHAT';
-    embedded_svc.settings.disabledMinimizedText = (language == 'hi') ? 'चैट का समर्थन करें' : 'SUPPORT CHAT';
-    embedded_svc.settings.loadingText = (language == 'hi') ? 'लोड हो रहा है...' : 'Loading...';
+    embedded_svc.settings.defaultMinimizedText =  'SUPPORT CHAT';
+    embedded_svc.settings.disabledMinimizedText = 'SUPPORT CHAT';
+    embedded_svc.settings.loadingText = 'Loading...';
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -378,7 +377,7 @@ var title = document.title;
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: '5732p0000004To7',//(language == 'hi') ? '5732p0000004Tnx' : '5732p0000004To2',
+                buttonId: '5732p0000004Tnn',
                 baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
                 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
