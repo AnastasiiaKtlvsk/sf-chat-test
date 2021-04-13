@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-
-</head>
-<body>
-	<h>Test Chat </h>
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
-	</style>
 <style>
 .chasitorText, .slds-input, .textAreaBox {    
     -webkit-user-select: text !important;
@@ -406,5 +392,3 @@ if (!window.embedded_svc) {
 }
 
 </script>
-</body>
-</html>
