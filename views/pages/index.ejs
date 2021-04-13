@@ -353,9 +353,9 @@ var title = document.title;
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
-    embedded_svc.settings.disabledMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
-    embedded_svc.settings.loadingText = (language == 'ru') ? 'Загрузка...' : 'Loading...';
+    embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : ((language == 'uk') ? 'ЧАТ ПІДТРИМКИ'  : 'SUPPORT CHAT');
+    embedded_svc.settings.disabledMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : ((language == 'uk') ? 'ЧАТ ПІДТРИМКИ'  : 'SUPPORT CHAT');
+    embedded_svc.settings.loadingText = (language == 'ru') ? 'Загрузка...' : ((language == 'uk') ? 'Завантаження...'  : 'Loading...');
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -377,16 +377,16 @@ var title = document.title;
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
  	embedded_svc.init(
-        	'https://parimatch--staging.my.salesforce.com',
-			'https://staging-parimatchchat.cs105.force.com/surveychat',
+        'https://parimatch.my.salesforce.com',
+        'https://parimatchchat.secure.force.com/surveychat',
             gslbBaseURL,
-            '00D1w0000000b0e',
+            '00D2p00000139LC',
             (accountId) ? 'Chat_Deployment_LoginUser_New' : 'Chat_Deployment_Desktop_New',
             {
-                baseLiveAgentContentURL: 'https://c.la1-c1cs-fra.salesforceliveagent.com/content',
+                baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: (language == 'ru') ? '5732p0000000GqZ' : '5732p0000000GqU',
-                baseLiveAgentURL: 'https://d.la1-c1cs-fra.salesforceliveagent.com/chat',
+                buttonId: (language == 'ru') ? '5732p0000000Gqj' : ((language == 'uk') ? '5732p0000004ToC'  : '5732p0000000Gqe'),
+                baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
                 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
                 isOfflineSupportEnabled: false
@@ -396,7 +396,7 @@ var title = document.title;
 
 if (!window.embedded_svc) {
     var s = document.createElement('script');
-    s.setAttribute('src', 'https://parimatch--staging.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+    s.setAttribute('src', 'https://parimatch.my.salesforce.com/embeddedservice/5.0/esw.min.js');
     s.onload = function() {
         initESW(null);
     };
