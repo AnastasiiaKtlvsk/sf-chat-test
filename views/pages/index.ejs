@@ -342,9 +342,9 @@ document.addEventListener(
 var title = document.title;
 
 
-	var accountId = '{{userID}}';
+	var accountId = new URLSearchParams(window.location.search).get('accountID');
     accountId = (accountId == "undefined") ? null : accountId;
-    var language = document.querySelector('html').getAttribute('lang');
+    var language =  new URLSearchParams(window.location.search).get('language');
 	language = (language == 'en') ? 'en-US' : language;
 	
 	var initESW = function(gslbBaseURL) {
