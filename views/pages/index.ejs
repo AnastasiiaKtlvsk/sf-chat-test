@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
 	<title></title>
 	
@@ -342,8 +342,7 @@ document.addEventListener(
 var title = document.title;
 
 
-	var accountId = '{{userID}}';
-    accountId = (accountId == "undefined") ? null : accountId;
+	var accountId = new URLSearchParams(window.location.search).get('accountID');
     var language = document.querySelector('html').getAttribute('lang');
 	language = (language == 'en') ? 'en-US' : language;
 	
@@ -353,9 +352,9 @@ var title = document.title;
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = (language == 'fr') ? 'CHAT D\'ASSISTANCE' : 'SUPPORT CHAT';
-    embedded_svc.settings.disabledMinimizedText = (language == 'fr') ? 'CHAT D\'ASSISTANCE' : 'SUPPORT CHAT';
-    embedded_svc.settings.loadingText = (language == 'fr') ? 'Chargement...' : 'Loading...';
+    embedded_svc.settings.defaultMinimizedText = 'SUPPORT CHAT';
+    embedded_svc.settings.disabledMinimizedText =  'SUPPORT CHAT';
+    embedded_svc.settings.loadingText = 'Loading...';
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -385,7 +384,7 @@ var title = document.title;
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: (language == 'fr') ? '5732p0000004To7' : '5732p0000004ToW',
+                buttonId: '5732p0000004Tnn',
                 baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
                 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
