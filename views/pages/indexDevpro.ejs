@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 
-
-
 <html>
 
 
@@ -35,6 +33,10 @@
 <!-- body -->
 
 <body class="main-layout">
+
+	<div style ="bottom: 0px; right: 0px; position: absolute;" >
+      <iframe id="chatFrame" src= "https://akotilieiframe.herokuapp.com/chat"></iframe>
+    </div>
     <!-- loader  -->
     <div class="loader_bg">
         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
@@ -321,6 +323,7 @@
     <!-- sidebar -->
     <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="js/custom.js"></script>
+
   <style>
   iframe{
     width: 100%;
@@ -328,9 +331,6 @@
     border: none;
   }
   </style>
-  <head>
-    <title>Salesforce Chat - Iframes POC</title>
-  </head>
   <!--<script type="text/javascript" src="path/to/prototype.js"></script>-->
   <script type="application/javascript">
     window.onmessage = function(e) {
@@ -342,11 +342,6 @@
       }
     };
   </script>
-  <body>
-    <div style ="bottom: 0px; right: 0px; position: absolute;" >
-      <iframe id="chatFrame" src= "https://akotilieiframe.herokuapp.com/chat"></iframe>
-    </div>
-  </body>
   
 </html>
 
