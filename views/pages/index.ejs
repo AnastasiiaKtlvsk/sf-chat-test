@@ -341,7 +341,7 @@ var title = document.title;
 
 	var accountId = new URLSearchParams(window.location.search).get('accountID');
     var language = document.querySelector('html').getAttribute('lang');
-	language = (language == 'en') ? 'en-US' : language;
+		language = (language == 'kk') ? 'lb' : language;
 	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
@@ -349,9 +349,9 @@ var title = document.title;
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = 'SUPPORT CHAT';
-    embedded_svc.settings.disabledMinimizedText =  'SUPPORT CHAT';
-    embedded_svc.settings.loadingText = 'Loading...';
+    embedded_svc.settings.defaultMinimizedText = (language == 'lb') ? 'ҚОЛДАУ ЧАТЫ' : 'ЧАТ ПОДДЕРЖКИ';
+    embedded_svc.settings.disabledMinimizedText = (language == 'lb') ? 'ҚОЛДАУ ЧАТЫ' : 'ЧАТ ПОДДЕРЖКИ';
+    embedded_svc.settings.loadingText = (language == 'lb') ? 'Жүктелуде...' : 'Загрузка...';
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -381,7 +381,7 @@ var title = document.title;
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: '5732p0000004Tnn',
+                buttonId: (language == 'lb') ? '5732p0000004Tpt' : '5732p0000004Tq8',
                 baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
                 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
@@ -400,7 +400,6 @@ if (!window.embedded_svc) {
 } else {
     initESW('https://service.force.com');
 }
-
 </script>
 </body>
 </html>
