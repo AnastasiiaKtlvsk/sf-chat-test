@@ -340,7 +340,7 @@ var title = document.title;
 
 
 	var accountId = new URLSearchParams(window.location.search).get('accountID');
-    var language = document.querySelector('html').getAttribute('lang');
+    var language = new URLSearchParams(window.location.search).get('language');
 		language = (language == 'kk') ? 'lb' : language;
 	
 	var initESW = function(gslbBaseURL) {
