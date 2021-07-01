@@ -358,9 +358,9 @@ var title = document.title;
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = settings.get(language).get('label');
-    embedded_svc.settings.disabledMinimizedText = settings.get(language).get('label');
-    embedded_svc.settings.loadingText = settings.get(language).get('loading');
+    embedded_svc.settings.defaultMinimizedText = settings.get(language).label;
+    embedded_svc.settings.disabledMinimizedText = settings.get(language).label;
+    embedded_svc.settings.loadingText = settings.get(language).loading;
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
@@ -390,7 +390,7 @@ var title = document.title;
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: settings.get(language).get('buttonId'),
+                buttonId: settings.get(language).buttonId,
                 baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
                 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
