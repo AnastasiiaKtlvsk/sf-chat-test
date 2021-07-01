@@ -338,16 +338,15 @@ document.addEventListener(
 	false
 );
 
-	var title = document.title;
+var title = document.title;
 
-	var accountId = new URLSearchParams(window.location.search).get('accountID');
+	var accountId = '{{userID}}';
     accountId = (accountId == "undefined") ? null : accountId;
-    var language = new URLSearchParams(window.location.search).get('language');
-    if (language != 'th' && language != 'ms' && language != 'id' && language != 'es' && language != 'ru') {
+    var language = document.querySelector('html').getAttribute('lang');
+	if (language != 'th' && language != 'ms' && language != 'id' && language != 'es' && language != 'ru') {
 		language = 'en-US';
 	}
 	
-	var initESW = function(gslbBaseURL) {
 	var settings = new Map();
 	settings.set('th', {buttonId: "5732p0000004Trp", label: "แชทสนับสนุน", loading: 'กำลังโหลด...'});
 	settings.set('ms', {buttonId: "5732p0000004Trz", label: "SEMBANG SOKONGAN", loading: 'Memuatkan...'});
@@ -355,8 +354,8 @@ document.addEventListener(
 	settings.set('es', {buttonId: "5732p0000004Tsn", label: "CHAT DE ASISTENCIA", loading: 'Memuat...'});
 	settings.set('ru', {buttonId: "5732p0000004Tsx", label: "ЧАТ ПОДДЕРЖКИ", loading: 'Загрузка...'});
 	settings.set('en-US', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-
-
+	
+	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
     embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
     embedded_svc.settings.displayHelpButton = true;
