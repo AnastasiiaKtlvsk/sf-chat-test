@@ -332,25 +332,7 @@ var title = document.title;
     var language = document.querySelector('html').getAttribute('lang');
 	language = (language == 'en') ? 'en-US' : language;
 
-	var settings = new Map();
-	settings.set('th', {buttonId: "5732p0000004Trp", label: "แชทสนับสนุน", loading: 'กำลังโหลด...'});
-	settings.set('ms', {buttonId: "5732p0000004Trz", label: "SEMBANG SOKONGAN", loading: 'Memuatkan...'});
-	settings.set('id', {buttonId: "5732p0000004Ts9", label: "OBROLAN DUKUNGAN", loading: 'Сargando...'});
-	settings.set('es', {buttonId: "5732p0000004Tsn", label: "CHAT DE ASISTENCIA", loading: 'Memuat...'});
-	settings.set('ru', {buttonId: "5732p0000004Tsx", label: "ЧАТ ПОДДЕРЖКИ", loading: 'Загрузка...'});
-	settings.set('en-US', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('fr', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('de', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('hi', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('it', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('pt', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('sw', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('ja', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('bn', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('vi', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('ne', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('si', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
-	settings.set('ta', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
+
 	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
@@ -358,9 +340,9 @@ var title = document.title;
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
 
-    embedded_svc.settings.defaultMinimizedText = settings.get(language).label;
-    embedded_svc.settings.disabledMinimizedText = settings.get(language).label;
-    embedded_svc.settings.loadingText = settings.get(language).loading;
+    embedded_svc.settings.defaultMinimizedText ='e'; //settings.get(language).label;
+    embedded_svc.settings.disabledMinimizedText = 'r';//settings.get(language).label;
+    embedded_svc.settings.loadingText = 'r';//settings.get(language).loading;
 
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
