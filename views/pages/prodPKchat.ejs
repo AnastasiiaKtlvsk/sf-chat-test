@@ -346,9 +346,9 @@ settings.set('ne', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading:
 settings.set('si', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
 settings.set('ta', {buttonId: "5732p0000004Tt7", label: "SUPPORT CHAT", loading: 'Loading...'});
 
-	var accountId = '{{userID}}';
+	var accountId = new URLSearchParams(window.location.search).get('accountID');
     accountId = (accountId == "undefined") ? null : accountId;
-    var language = document.querySelector('html').getAttribute('lang');
+    var language = new URLSearchParams(window.location.search).get('language');
 	language = (language == 'en') ? 'en-US' : language;
 
 	
@@ -410,4 +410,4 @@ if (!window.embedded_svc) {
     initESW('https://service.force.com');
 }
 
-</script>
+</script>pr
