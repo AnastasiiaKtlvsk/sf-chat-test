@@ -19,8 +19,14 @@
 	-moz-user-select: text !important;
 	-ms-user-select: text !important;
 }
-@media screen and (max-width: 1024px) {
-	
+
+@media screen and (max-width: 1280px) {
+
+	.modalContainer {
+        position: absolute !important;
+        z-index: 99999 !important;
+    }
+
 	.minimizedContainer {
 		position:fixed !important;
 		bottom:70px !important;
@@ -29,35 +35,43 @@
 		height: 20px !important;
 		font-weight: normal !important;
 	}
+
 	.cChatButton .messageText {
 		margin-left: 3px !important;
 		font-size: 10px !important;
 	}
+
 	.cChatButton .buttonMinimized {
 		height: 30px !important;
 	}
+
 	.cChatButton .chatIcon {
 		width: 14px !important;
 		height: 14px !important;
 	}
 }
+
+li.wrapper.chatMessage, 
 li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatMessage,
 li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatBubble.embeddedServiceLiveAgentStateChatFileTransferMessage,
 li.wrapper.embeddedServiceLiveAgentStateChatMessage  {
 	min-width: 2px !important;
 }
+
 svg.slds-icon.slds-icon-text-default.slds-icon_x-small {
 	height: 20px !important;
 	min-height: 20px !important;
 	width: 20px !important;
 	min-width: 20px !important;
 }
+
 .helpButtonEnabled .embeddedServiceIcon {
 	width: 16.67px;
 	height: 16.67px;
 	background-size: 16.67px;
-	background-image: url('https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYLZQA2&d=/a/0E000000GNHh/r7XNnbD36f8lj8NtuQBcB55Me.jNG6IsoWAsz1vCsGI&operationContext=DELIVERY&viewId=05H0E000000HBRCUA4&dpt=');
+	background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBW5vAAH&d=/a/2p0000002WaJ/DKlkpg7OjXdmJs.Cz8o.MXqLhdB9Vn9g9lqz3Y0G4GU&operationContext=DELIVERY&viewId=05H2p0000024IzmEAE&dpt=');
 }
+
 .dialog-button-1 {
 	width: 44px;
 	height: 44px;
@@ -65,38 +79,53 @@ svg.slds-icon.slds-icon-text-default.slds-icon_x-small {
 	box-sizing: border-box;
 	background-color: white !important;
 	border-radius: 4px;
-	background-image: url('https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYSYQA2&d=/a/0E000000GNIV/6lZThIMuu.NdWhZ7vpuudBhsR1GR6rVGQY2yZlPm.M0&operationContext=DELIVERY&viewId=05H0E000000HBThUAO&dpt=') !important;
+	background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVvVAAX&d=/a/2p0000002WZL/EbswtRJfxx4DhJcNOONu7B9_1QbekBDrZLe7lr_6C0o&operationContext=DELIVERY&viewId=05H2p0000024IwiEAE&dpt=') !important;
 	background-size: 16px !important;
 	background-position-x: center !important;
 	background-position-y: center !important;
 	background-repeat: no-repeat !important;
 	display: block !important;
 }
+
 .waitingMessage, .waitingGreeting {
 	color: black !important;
 }
+
 @media only screen and (min-width: 48em) { 
 	.embeddedServiceHelpButton .helpButton .uiButton:hover::before, .embeddedServiceHelpButton .helpButton .uiButton:focus::before {
 		display: none !important;
 	}
 }
+
 h3#dialogTextTitle, .waitingGreeting, .embeddedServiceSidebarButton {
     font-weight: 700 !important;
+    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
+
 }
+
 .embeddedServiceSidebarButton {
     font-size: 14px !important;
+    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
 }
+
+.embeddedServiceSidebar.modalContainer {
+    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
+}
+
 button.minimizeButton:focus, button.closeButton:focus{
 	outline: none;
 	box-shadow: none;
 }
+
 .embeddedServiceSidebarExtendedHeader, .headerAnnouncement {
 	display: none !important;
 }
+
 .embeddedServiceSidebarMinimizedDefaultUI {
 	background: #F8FF13 !important;
 	background-color: #F8FF13 !important;
 }
+
 .embeddedServiceHelpButton .helpButton {
 	bottom: 16px !important;
 	height: 40px !important;
@@ -105,6 +134,7 @@ button.minimizeButton:focus, button.closeButton:focus{
 	justify-content: center !important;
 	border-radius: 30px !important;
 }
+
 .embeddedServiceHelpButton .helpButton .uiButton {
 	background-color: #222222;
 	font-family: "Circe", sans-serif;
@@ -113,12 +143,15 @@ button.minimizeButton:focus, button.closeButton:focus{
 	width: 168px !important;
 	display: block !important;
 }
+
 .embeddedServiceHelpButton .helpButton .uiButton:focus {
 	outline: 1px solid #222222;
 }
+
 .embeddedServiceSidebar.layout-docked .dockableContainer, .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
 	border-radius: 0px;
 }
+
 .embeddedServiceHelpButton .helpButton .uiButton,
 .embeddedServiceSidebarMinimizedDefaultUI.helpButton,
 .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus,
@@ -133,13 +166,16 @@ button.minimizeButton:focus, button.closeButton:focus{
 	border-style: unset !important;
 	text-decoration: none !important;
 }
+
 .helpButtonLabel {
 	display: inline-block !important;
 	line-height: 16.67px !important;
 }
+
 span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText a  {
 	color: black !important;
 }
+
 .dialogButtonContainer {
 	display: flex !important;
 	justify-content: space-between !important;
@@ -148,16 +184,18 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 	margin: auto !important;
 	padding: 0 0px 16px !important;
 }
+
 .dialog-button-0 {
 	width: 236px;
 	height: 44px;
 }
+
 .message, .embeddedServiceSidebarMinimizedDefaultUI .content {
 	background-color: #F8FF13 !important;
 	border: none !important;
 	padding: 0 0 0 0 !important;
 	margin: 0 0 0 0  !important;
-	font-family: Roboto Condensed;
+	font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif !important;
 	font-style: normal;
 	font-weight: bold;
 	font-size: 12px;
@@ -168,19 +206,24 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 	color:#000000;
 	text-decoration: none;
 }
+
 .embeddedServiceHelpButton .helpButton .helpButtonEnabled:hover::before, .embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus::before {
 	background-color: white;
 }
+
 .messageContent path {
 	stroke: black;
 	fill: black;
 }
+
 .embeddedServiceSidebarButton .label, .embeddedServiceSidebarButton:disabled .label, .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
 	color: black;
 }
+
 .dialog-button-1 .bBody, .helpButtonEnabled .embeddedServiceIcon::before, .helpButtonEnabled .embeddedServiceIcon svg, .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled   {
 	display: none !important;
 }
+
 .embeddedServiceSidebarDialogState .dialogButton,
 .embeddedServiceSidebarDialogState .dialogButton:focus,
 .embeddedServiceSidebarDialogState .dialogButton:hover {
@@ -193,70 +236,98 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 	border-style: unset;
 	text-decoration: none;
 }
+
 .embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus,
 .embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):hover,
 .embeddedServiceSidebarButton.uiButton--inverse, .embeddedServiceSidebarButton.uiButton--inverse:disabled {
 	background-color: #F8FF13;
 	margin-bottom: 8px;
 }
+
 .embeddedServiceSidebarButton.uiButton--inverse .label {
 	color:#000000 !important;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter .chasitorControls .uiInput {
 	border: 1px solid #D9D9D9;
 }
+
 .embeddedServiceLiveAgentStateChat .messageArea {
 	border: none;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:hover,
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus,
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:active {
 	color: #787c80 !important;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus {
 	box-shadow: none;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
 	border: none !important;
 	box-shadow: none !important;
 }
+
 .embeddedServiceSidebarButton:not(:disabled):focus, .embeddedServiceSidebarButton:not(:disabled):hover,
 .embeddedServiceLiveAgentStateChat .endChatContainer .endChatButton {
 	background: var(--lwc-colorBrandSecondary,#f8ff13);
 	margin-bottom: 8px;
 }
+
 .uiButton--default:hover .label, .uiButton--default:focus .label {
 	color:black;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter {
 	margin-bottom: 0px !important;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger_click.slds-is-open .slds-button {
 	color:#787c80;
 }
+
 .embeddedServiceLiveAgentStateChat .messageArea:focus {
 	border: none;
 }
+
 .embeddedServiceLiveAgentStateWaiting .loadingBall,
 .embeddedServiceLiveAgentQueuePosition .embeddedServiceLoadingBalls .loadingBall {
 	background-color: #787c80 !important;
 }
+
 .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
     color: #5a5d60 !important;
 }
+
 </style>
 
 <script type="text/javascript" charset="UTF-8" >
-	document.onclick = function(event) {
+document.onclick = function(event) {
+	var node = event.target;
+	var parentNode = node.parentNode;
+	var grandparentNode = (parentNode != null) ? parentNode.parentNode : null;
+
 	var tagName = event.target.tagName;
+	var sendButtonClass = 'chatActionButton Upload this file medium uiButton--default uiButton embeddedServiceLiveAgentStateChatAction';
+
 	if (tagName == "EMBEDDEDSERVICE-CHAT-HEADER") {
 		var counter = document.getElementsByClassName("dot")[0];
 		if (counter) {
 			counter.style.visibility = "hidden";
 			document.title = title;
 		}
+	} else if (node.className == sendButtonClass || node.getAttribute('data-key') == 'paper_plane' || 
+	(parentNode != null && parentNode.nodeName != '#document-fragment' && (parentNode.className == sendButtonClass || parentNode.getAttribute('data-key') == 'paper_plane' ))|| 
+	(grandparentNode != null && grandparentNode.nodeName != '#document-fragment' &&  (grandparentNode.className == sendButtonClass || grandparentNode.getAttribute('data-key') == 'paper_plane' ))){
+		embedded_svc.liveAgentAPI.sendCustomEvent(
+		'type:Customer_to_agent_event_type',
+		'File uploaded');
 	}
 }
+
 document.addEventListener(
 		"setCounter",
 		function(event) {
@@ -267,6 +338,8 @@ document.addEventListener(
 		},
 		false
 );
+
+
 document.addEventListener(
 	"setCustomField",
 	function(event) {
@@ -285,8 +358,8 @@ var title = document.title;
     var language = 'ru';
 	
 	var initESW = function(gslbBaseURL) {
-    embedded_svc.settings.avatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
-    embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch--devpro.my.salesforce.com/sfc/dist/version/download/?oid=00D0E000000E6IW&ids=0680E000001jYFqQAM&d=/a/0E000000GNHX/OJDIjzopJQi7OOcvCcCRZeXD6D3rqn3820_3pgs1AYE&operationContext=DELIVERY&viewId=05H0E000000HBQiUAO&dpt=';
+    embedded_svc.settings.avatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
+    embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
     embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
