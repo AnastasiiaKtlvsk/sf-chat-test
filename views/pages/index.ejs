@@ -398,8 +398,8 @@ var title = document.title;
         {"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
         {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false}
     ];
-    if (showContact) {
-        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
+    if (showContact == 'true') {
+       embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
     } else {
         embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false}],"entityName":"Contact","showOnCreate":false}];
     }
