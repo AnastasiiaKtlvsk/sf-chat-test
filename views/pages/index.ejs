@@ -305,6 +305,7 @@ span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText
 </style>
 
 <script type="text/javascript" charset="UTF-8" >
+
 document.onclick = function(event) {
 	var node = event.target;
 	var parentNode = node.parentNode;
@@ -325,6 +326,8 @@ document.onclick = function(event) {
 		embedded_svc.liveAgentAPI.sendCustomEvent(
 		'type:Customer_to_agent_event_type',
 		'File uploaded');
+	} else if ( node.className == 'slds-button slds-button_neutral customStartButton customChatEndButton') {
+		embedded_svc.liveAgentAPI.endChat();
 	}
 }
 
@@ -344,18 +347,24 @@ document.addEventListener(
 	"setCustomField",
 	function(event) {
 		var detail = event.detail;
-		embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.name;
-		embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.email;
-		embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.phone;
-		// Fire startChat callback.
+		console.log('detail = ', detail);
+		embedded_svc.settings.extraPrechatFormDetails[0].value = event.detail.caseid;
+		embedded_svc.settings.extraPrechatFormDetails[1].value = event.detail.name;
+		embedded_svc.settings.extraPrechatFormDetails[2].value = event.detail.email;
+		embedded_svc.settings.extraPrechatFormDetails[3].value = event.detail.phone;
+		embedded_svc.settings.extraPrechatFormDetails[4].value = event.detail.subject;
+		embedded_svc.settings.extraPrechatFormDetails[5].value = event.detail.agentreason;
+		embedded_svc.settings.extraPrechatFormDetails[6].value = event.detail.chatdialog;
 		event.detail.callback();
 	},
 	false
 );
+
 var title = document.title;
 	var accountId = new URLSearchParams(window.location.search).get('accountID');
     accountId = (accountId == "undefined") ? null : accountId;
     var language = 'ru';
+    var showContact = new URLSearchParams(window.location.search).get('showContact');
 	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
@@ -367,36 +376,53 @@ var title = document.title;
     embedded_svc.settings.loadingText = (language == 'ru') ? 'Загрузка...' : 'Loading...';
     embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
+        {"label":"CaseId", "transcriptFields": ["CaseId"]},
+        {"label":"Name",  "transcriptFields": ["PreChat_Form_Name__c"]},
+        {"label":"Email", "transcriptFields": ["PreChat_Form_Email__c"]},
+        {"label":"Phone", "transcriptFields": ["PreChat_Form_Phone__c"]},
+        {"label":"Subject", "transcriptFields": ["PreChat_Form_Subject__c"]},
+        {"label":"Case Area Reason", "transcriptFields": ["PreChat_Case_Area_Reason__c"]},
+        {"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
         {"label":"PreChat Form AccountID", "transcriptFields": ["PreChat_Form_AccountID__c"], "value" : accountId},
         {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false},
         {"label":"Is Logged", "transcriptFields": ["Is_Logged__c"], "value" : "true"}
     ] :
+ 
     [
+        {"label":"CaseId", "transcriptFields": ["CaseId"]},
         {"label":"Name",  "transcriptFields": ["PreChat_Form_Name__c"]},
         {"label":"Email", "transcriptFields": ["PreChat_Form_Email__c"]},
         {"label":"Phone", "transcriptFields": ["PreChat_Form_Phone__c"]},
+        {"label":"Subject", "transcriptFields": ["PreChat_Form_Subject__c"]},
+        {"label":"Case Area Reason", "transcriptFields": ["PreChat_Case_Area_Reason__c"]},
+        {"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
         {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false}
     ];
-	embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
-    embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+    if (showContact) {
+        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
+    } else {
+        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false}],"entityName":"Contact","showOnCreate":false}];
+    }
+        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
- 	embedded_svc.init(
+
+    embedded_svc.init(
         'https://parimatch.my.salesforce.com',
         'https://parimatchchat.secure.force.com/surveychat',
             gslbBaseURL,
             '00D2p00000139LC',
-            (accountId) ? 'Chat_Deployment_LoginUser_New' : 'Chat_Deployment_Desktop_New',
+            'Chat_Deployment_Desktop_New',
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
                 buttonId: '5732p0000004Tnn',
                 baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
-                eswLiveAgentDevName: (accountId) ? 'EmbeddedServiceLiveAgent_Parent04I2p0000008PviEAE_177ee7ddf7d' :
-                'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
+                eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
                 isOfflineSupportEnabled: false
             }
     );
 };
+
 if (!window.embedded_svc) {
     var s = document.createElement('script');
     s.setAttribute('src', 'https://parimatch.my.salesforce.com/embeddedservice/5.0/esw.min.js');
