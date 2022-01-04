@@ -401,7 +401,19 @@ var title = document.title;
     if (showContact == 'true') {
        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
     } else {
-        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false}],"entityName":"Contact","showOnCreate":false}];
+        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,
+            "fieldName":"LastName",
+            "isExactMatch":false,
+            "label":"Last Name"}],"entityName":"Contact","showOnCreate":false},{
+            "entityName":"Case",
+            "entityFieldMaps": [{
+                "doCreate":false,
+                "doFind":false,
+                "fieldName":"Subject",
+                "isExactMatch":false,
+                "label":"Subject"
+            }]
+        }];
     }
         embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
