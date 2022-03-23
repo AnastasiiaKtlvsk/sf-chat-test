@@ -1,306 +1,544 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-
-</head>
-<body>
-	<h>Test Chat </h>
-	<style>
-		@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
-	</style>
-<style>
-.chasitorText, .slds-input, .textAreaBox {    
-    -webkit-user-select: text !important;
-	user-select: text !important;
-	-moz-user-select: text !important;
-	-ms-user-select: text !important;
-}
-
-@media screen and (max-width: 1280px) {
-
-	.modalContainer {
-        position: absolute !important;
-        z-index: 99999 !important;
+	<html>
+		<head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+        </head>
+		<body>
+			<div> Available languages:
+				<ul>
+					<li>kk</li>
+					<li>en</li>
+					<li>ru</li>
+				</ul>
+			</div>
+    <div  style="width:100%; display:flex; height: 80px; border: solid yellow 2px;" onclick="document.getElementsByClassName('uiButton')[0].click()" type="button" value="Чат">Online Chat</div>
+			<style>
+				@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&amp;display=swap');
+            </style>
+            <style>
+    .chasitorText, .slds-input, .textAreaBox {    
+        -webkit-user-select: text !important;
+        user-select: text !important;
+        -moz-user-select: text !important;
+        -ms-user-select: text !important;
     }
 
-	.minimizedContainer {
-		position:fixed !important;
-		bottom:70px !important;
-		width:115px !important;
-		right:2px !important;	
-		height: 20px !important;
-		font-weight: normal !important;
+	h2[embeddedService-chatHeader_chatHeader] {
+		font-weight: 600 !important;
+		text-align: center !important;
+		margin-left: 48px !important;
+		text-transform: capitalize !important;
+	}
+    
+    @media screen and (max-width: 1280px) {
+        .embeddedServiceHelpButton {
+            display: none !important;
+        }
+    
+        .modalContainer {
+            position: absolute !important;
+            z-index: 99999 !important;
+        }
+    
+        .minimizedContainer {
+            position:fixed !important;
+            bottom:70px !important;
+            width:115px !important;
+            right:2px !important;   
+            height: 20px !important;
+            font-weight: normal !important;
+        }
+    
+        .cChatButton .messageText {
+            margin-left: 3px !important;
+            font-size: 10px !important;
+        }
+    
+        .cChatButton .buttonMinimized {
+            height: 30px !important;
+        }
+    
+        .cChatButton .chatIcon {
+            width: 14px !important;
+            height: 14px !important;
+        }
+    }
+    
+    li.wrapper.chatMessage, 
+    li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatMessage,
+    li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatBubble.embeddedServiceLiveAgentStateChatFileTransferMessage,
+    li.wrapper.embeddedServiceLiveAgentStateChatMessage  {
+        min-width: 2px !important;
+        background-color: #1B041C !important;
+    }
+    
+    svg.slds-icon.slds-icon-text-default.slds-icon_x-small {
+        height: 20px !important;
+        min-height: 20px !important;
+        width: 20px !important;
+        min-width: 20px !important;
+    }
+        
+    .embeddedServiceLiveAgentStateChat .chatSessionStartTime {
+        color: #9D9D9D !important;    
+    }
+        
+    .embeddedServiceLiveAgentStateChatItem .nameAndTimeContent {
+        color: #9D9D9D !important;    
+    }
+    
+    .helpButtonEnabled .embeddedServiceIcon {
+        width: 16.67px;
+        height: 16.67px;
+        background-size: 16.67px;
+        background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000SBozOAAT&d=/a/2p000000sWmG/3V8P8xh0VfOOitC_pU1egmMSU0S8DIcdLTL4_zRdZgk&operationContext=DELIVERY&viewId=05H2p000002xrzcEAA&dpt=');
+    }
+    
+	.cPrechatCaseArea .backButton {
+        background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000SBmciAAD&d=/a/2p000000sWcC/vdw24KYfSSFNeLOVnp40Es38NkliLD4.C.EowrYcDwc&operationContext=DELIVERY&viewId=05H2p000002xriHEAQ&dpt=') !important;
 	}
 
-	.cChatButton .messageText {
-		margin-left: 3px !important;
-		font-size: 10px !important;
+    .dialog-button-1 {
+        width: 44px;
+        height: 44px;
+        border: 1px solid #262626 !important;
+        box-sizing: border-box;
+        background-color: white !important;
+        border-radius: 4px;
+        background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000SBmciAAD&d=/a/2p000000sWcC/vdw24KYfSSFNeLOVnp40Es38NkliLD4.C.EowrYcDwc&operationContext=DELIVERY&viewId=05H2p000002xriHEAQ&dpt=') !important;
+        background-size: 16px !important;
+        background-position-x: center !important;
+        background-position-y: center !important;
+        background-repeat: no-repeat !important;
+        display: block !important;
+    }
+    
+    .waitingMessage, .waitingGreeting {
+        color: white !important;
+    }
+    
+    @media only screen and (min-width: 48em) { 
+        .embeddedServiceHelpButton .helpButton .uiButton:hover::before, .embeddedServiceHelpButton .helpButton .uiButton:focus::before {
+            display: none !important;
+        }
+    }
+        
+	img[embeddedService-chatHeader_chatHeader] {
+		max-height: 0px !important;
+		max-width: 0px !important;
+	}
+    
+    h3#dialogTextTitle, .waitingGreeting, .embeddedServiceSidebarButton {
+        font-weight: 700 !important;
+        font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
+        color: white !important;
+    }
+    
+    .embeddedServiceSidebarButton {
+        font-size: 14px !important;
+        font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
+        background-color: #025550 !important;
+        border-radius: 8px !important;
+    }
+    
+    .embeddedServiceSidebar.modalContainer {
+        font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
+    }
+            
+    .sidebarBody {
+        background-color: #1B041C !important; 
+    }
+            
+    [embeddedservice-chatheader_chatheader-host] {
+        background-color: #1B041C !important;        
+    }
+    
+
+	.embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-item {
+		color: white;
 	}
 
-	.cChatButton .buttonMinimized {
-		height: 30px !important;
+	.embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li, .embeddedServiceLiveAgentStateChatItem .chatContent ul.rich-menu-items li:first-of-type {
+   		border-color: #522252;
 	}
 
-	.cChatButton .chatIcon {
-		width: 14px !important;
-		height: 14px !important;
+	
+	span.typingIndicatorBall.first, span.typingIndicatorBall.second, span.typingIndicatorBall.third,
+	.embeddedServiceLiveAgentStateChatInputFooter .unseenMessageNotificationWrapper .scrollDownButton .slds-button_icon-border {
+		background-color: #025550 !important;
 	}
-}
 
-li.wrapper.chatMessage, 
-li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatMessage,
-li.wrapper.chatMessage.chasitor.embeddedServiceLiveAgentStateChatItem.embeddedServiceLiveAgentStateChatBubble.embeddedServiceLiveAgentStateChatFileTransferMessage,
-li.wrapper.embeddedServiceLiveAgentStateChatMessage  {
-	min-width: 2px !important;
-}
-
-svg.slds-icon.slds-icon-text-default.slds-icon_x-small {
-	height: 20px !important;
-	min-height: 20px !important;
-	width: 20px !important;
-	min-width: 20px !important;
-}
-
-.helpButtonEnabled .embeddedServiceIcon {
-	width: 16.67px;
-	height: 16.67px;
-	background-size: 16.67px;
-	background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBW5vAAH&d=/a/2p0000002WaJ/DKlkpg7OjXdmJs.Cz8o.MXqLhdB9Vn9g9lqz3Y0G4GU&operationContext=DELIVERY&viewId=05H2p0000024IzmEAE&dpt=');
-}
-
-.dialog-button-1 {
-	width: 44px;
-	height: 44px;
-	border: 1px solid #262626 !important;
-	box-sizing: border-box;
-	background-color: white !important;
-	border-radius: 4px;
-	background-image: url('https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVvVAAX&d=/a/2p0000002WZL/EbswtRJfxx4DhJcNOONu7B9_1QbekBDrZLe7lr_6C0o&operationContext=DELIVERY&viewId=05H2p0000024IwiEAE&dpt=') !important;
-	background-size: 16px !important;
-	background-position-x: center !important;
-	background-position-y: center !important;
-	background-repeat: no-repeat !important;
-	display: block !important;
-}
-
-.waitingMessage, .waitingGreeting {
-	color: black !important;
-}
-
-@media only screen and (min-width: 48em) { 
-	.embeddedServiceHelpButton .helpButton .uiButton:hover::before, .embeddedServiceHelpButton .helpButton .uiButton:focus::before {
-		display: none !important;
+	.embeddedServiceLiveAgentStateChatItem.chatMessage button , .embeddedServiceLiveAgentStateChatMenuMessage .rich-menu, 
+	.embeddedServiceLiveAgentStateChatBubble.agent .chatContent{
+		background-color: #2D132A;
 	}
-}
 
-h3#dialogTextTitle, .waitingGreeting, .embeddedServiceSidebarButton {
-    font-weight: 700 !important;
-    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
 
-}
+    button.minimizeButton:focus, button.closeButton:focus{
+        outline: none;
+        box-shadow: none;
+    }
+        
+    .submitButton {
+        background-color: #025550 !important;
+    }
+        
+    .question, .thanks {
+        color: white !important;    
+    }
+        
+    .rating, .appRating {
+        color: #2D132A !important;
+        --uiRatingColor: #2D132A !important;
+        --uiRatingColorActive: #025550 !important;
+    }
+        
+    .textAreaBox {
+        border-color: #2D132A !important;
+        background-color: #2D132A !important;
+    }
+    
+    .embeddedServiceSidebarExtendedHeader, .headerAnnouncement {
+        display: none !important;
+    }
+    
+    .embeddedServiceSidebarMinimizedDefaultUI {
+        background: #025550 !important;
+        background-color: #025550 !important;
+    }
+        
+    .embeddedServiceLoadingBalls.animated .loadingBall {
+        background-color: #025550 !important;  
+    }
+        
+    .embeddedServiceHelpButton .helpButton {
+        bottom: 16px !important;
+        height: 40px !important;
+        width: 168px !important;
+        display: flex !important;
+        justify-content: center !important;
+        border-radius: 30px !important;
+    }
+    
+    .embeddedServiceHelpButton .helpButton .uiButton {
+        background-color: #222222;
+        font-family: "Circe", sans-serif;
+        color: white;
+        height: 40px !important;
+        width: 168px !important;
+        display: block !important;
+    }
+    
+    .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid white;
+    }
+    
+    .embeddedServiceSidebar.layout-docked .dockableContainer, .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
+        border-radius: 0px;
+    }
 
-.embeddedServiceSidebarButton {
-    font-size: 14px !important;
-    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
-}
+	.embeddedServiceSidebarButton:focus {
+		box-shadow: 0 0 3px 0 white !important;
+	}
+    
+    .embeddedServiceHelpButton .helpButton .uiButton,
+    .embeddedServiceSidebarMinimizedDefaultUI.helpButton,
+    .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus,
+    .embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover {
+        background-color: #025550 !important;
+        color: white !important;
+        border-radius: 30px !important;
+        padding: 0px 0px 0px 0px !important;
+        box-shadow: none !important;
+        outline: none !important;
+        border-style: unset !important;
+        text-decoration: none !important;
+    }
 
-.embeddedServiceSidebar.modalContainer {
-    font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,segoe ui,Roboto,Oxygen,Ubuntu,Cantarell,open sans,helvetica neue,sans-serif !important;
-}
+	.cPrechatContactInfo .labelText, .cPrechatCaseArea .labelText, .cPrechatCaseArea option:disabled {
+		color: #C2B2C2 !important;
+	}
 
-button.minimizeButton:focus, button.closeButton:focus{
-	outline: none;
-	box-shadow: none;
-}
+	.cPrechatCaseArea textarea, .cPrechatContactInfo input::placeholder, .cPrechatCaseArea input::placeholder {
+		color: #C2B2C2 !important;
+	}
+    
+    .helpButtonLabel {
+        display: inline-block !important;
+        line-height: 16.67px !important;
+    }
+    
+    span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText a  {
+        color: white !important;
+    }
+        
+    .cPrechatCaseArea .messageContent {
+        color: #A0CBCE !important;    
+    }
+    
+    .dialogButtonContainer {
+        display: flex !important;
+        justify-content: space-between !important;
+        flex-direction: row-reverse !important;
+        width: 290px !important;
+        margin: auto !important;
+        padding: 0 0px 16px !important;
+    }
+    
+    .dialog-button-0 {
+        width: 236px;
+        height: 44px;
+    }
+    
+    .message, .embeddedServiceSidebarMinimizedDefaultUI .content {
+        background-color: #025550 !important;
+        border: none !important;
+        padding: 0 0 0 0 !important;
+        margin: 0 0 0 0  !important;
+        font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif !important;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16.67px;
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        color:white;
+        text-decoration: none;
+    }
+    
+    .embeddedServiceHelpButton .helpButton .helpButtonEnabled:hover::before, .embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus::before {
+        background-color: white;
+    }
+    
+    .messageContent path {
+        stroke: black;
+        fill: black;
+    }
+    
+    .embeddedServiceSidebarButton .label, .embeddedServiceSidebarButton:disabled .label, .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
+        color: white;
+    }
+    
+    .dialog-button-1 .bBody, .helpButtonEnabled .embeddedServiceIcon::before, .helpButtonEnabled .embeddedServiceIcon svg, .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled   {
+        display: none !important;
+    }
+    
+    .cPrechatCaseArea .needHelpText, .cPrechatCaseArea .provideInfoText, .cPrechatContactInfo .provideInfoText, .cPrechatContactInfo .needHelpText {
+        color: white !important;    
+    }
+       
+    .cPrechatCaseArea select {
+        background: #2D132A;
+        border: 1px solid #2D132A;
+        box-sizing: border-box;
+        border-radius: 8px;    
+    }
+        
+    .cPrechatCaseArea .backButton, .cPrechatCaseArea .customChatEndButton {
+        border: 1px solid #2D132A !important;
+        box-sizing: border-box !important;
+        border-radius: 4px !important;
+        background-color: #1B041C !important;
+        color: white !important;
+    }
+        
+    .cPrechatCaseArea select, .cPrechatCaseArea .disabledOption select {
+        color: #C2B2C2 !important;    
+    }
+    
+    .embeddedServiceSidebarDialogState .dialogButton,
+    .embeddedServiceSidebarDialogState .dialogButton:focus,
+    .embeddedServiceSidebarDialogState .dialogButton:hover {
+        background-color: #025550;
+        color:#000000;
+        padding: 10px 16px 10px 16px;
+        box-shadow: none;
+        outline: none;
+        border-style: unset;
+        text-decoration: none;
+    }
+    
+    .embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus,
+    .embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):hover,
+    .embeddedServiceSidebarButton.uiButton--inverse, .embeddedServiceSidebarButton.uiButton--inverse:disabled,
+    .prechatButton > .customButton, .cPrechatContactInfo .customButton, .cPrechatCaseArea .customButton {
+		background-color: #025550 !important;
+		margin-bottom: 8px !important;
+		color: white;
+    }
+        
+    .cChatButton .messageContent {
+        background-color: #2D132A !important;
+        border-color: #2D132A !important;
+    }
+    
+	.chatMessage a:link, .chatMessage a:visited {
+		color: white;
+	}
 
-.embeddedServiceSidebarExtendedHeader, .headerAnnouncement {
-	display: none !important;
-}
+    .embeddedServiceSidebarButton.uiButton--inverse .label, .chasitor.chatMessage[c-chatMessageExtension_chatMessageExtension], 
+	.embeddedServiceSidebarDialogState #dialogTextBody {
+        color:white !important;
+    }
+    
+    .embeddedServiceLiveAgentStateChatInputFooter .chasitorControls .uiInput {
+		border: 1px solid #522252;
+    	background-color: #1B041C;
+    }
 
-.embeddedServiceSidebarMinimizedDefaultUI {
-	background: #F8FF13 !important;
-	background-color: #F8FF13 !important;
-}
+	.embeddedServiceLiveAgentStateChatInputFooter .chasitorControls .uiInput::placeholder,
+	.embeddedServiceLiveAgentStateChatMenuMessage .rich-menu-itemOptionIsClicked {
+		color: #C2B2C2;
+    }
+    
+	.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button__icon {
+		fill: #C2B2C2;
+	}
 
-.embeddedServiceHelpButton .helpButton {
-	bottom: 16px !important;
-	height: 40px !important;
-	width: 168px !important;
-	display: flex !important;
-	justify-content: center !important;
-	border-radius: 30px !important;
-}
+	.embeddedServiceLiveAgentStateChatInputFooter .unseenMessageNotificationWrapper .scrollDownButton .slds-button__icon {
+		fill: white;
+	}
 
-.embeddedServiceHelpButton .helpButton .uiButton {
-	background-color: #222222;
-	font-family: "Circe", sans-serif;
-	color: black;
-	height: 40px !important;
-	width: 168px !important;
-	display: block !important;
-}
+    .embeddedServiceLiveAgentStateChat .messageArea {
+        border: none;
+        background-color: #1B041C !important;
+    }
 
-.embeddedServiceHelpButton .helpButton .uiButton:focus {
-	outline: 1px solid #222222;
-}
+    .embeddedServiceLiveAgentStateChatItem.withTimestamp .avatar {
+        background: none !important;
+    }
+  
+    .agent.chatMessage[c-chatMessageExtension_chatMessageExtension] {
+        color: white !important;
+        background-color: #2D132A !important;    
+        margin-left: 0px !important;
+    }
+        
+    .chasitor.chatMessage[c-chatMessageExtension_chatMessageExtension] {
+        color: white !important;
+        background-color: #025550 !important;     
+    }
+    
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:hover,
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus,
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:active,
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger_click.slds-is-open .slds-button {
+        color: #787c80 !important;
+    }
+    
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus {
+        box-shadow: none;
+    }
+    
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .embeddedServiceSidebarButton:not(:disabled):focus, .embeddedServiceSidebarButton:not(:disabled):hover,
+    .embeddedServiceLiveAgentStateChat .endChatContainer .endChatButton {
+        background: var(--lwc-colorBrandSecondary,#f8ff13);
+        margin-bottom: 8px;
+    }
+    
+    .uiButton--default:hover .label, .uiButton--default:focus .label, .uiButton.embeddedServiceSidebarButton:hover {
+        color:white;
+    }
+    
+    .embeddedServiceLiveAgentStateChatInputFooter {
+        margin-bottom: 0px !important;
+        background-color: #2D132A !important;
+    }
+    
+    .embeddedServiceLiveAgentStateChat .messageArea:focus {
+        border: none;
+    }
+    
+    .embeddedServiceLiveAgentStateWaiting .loadingBall,
+    .embeddedServiceLiveAgentQueuePosition .embeddedServiceLoadingBalls .loadingBall {
+        background-color: #787c80 !important;
+    }
+    
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
+        color: #5a5d60 !important;
+    }
+        
+    .embeddedServiceLiveAgentStateChat .endChatContainer:before {
+        background: none !important;    
+    }
 
-.embeddedServiceSidebar.layout-docked .dockableContainer, .embeddedServiceSidebarMinimizedDefaultUI.helpButton {
-	border-radius: 0px;
-}
+    .embeddedServiceLiveAgentStateChatAction.uiButton:hover svg, .embeddedServiceLiveAgentStateChatAction.uiButton:focus svg, 
+	.embeddedServiceLiveAgentStateChatAction.uiButton:hover svg, .embeddedServiceLiveAgentStateChatAction.uiButton:focus svg,    
+	.embeddedServiceLiveAgentStateChatAction.uiButton svg {
+		fill: #025550 !important;
+	}
 
-.embeddedServiceHelpButton .helpButton .uiButton,
-.embeddedServiceSidebarMinimizedDefaultUI.helpButton,
-.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:focus,
-.embeddedServiceSidebarMinimizedDefaultUI.minimizedContainer:hover {
-	background-color: #F8FF13 !important;
-	border-color: #F8FF13 !important;
-	color:#000000 !important;
-	border-radius: 30px !important;
-	padding: 0px 0px 0px 0px !important;
-	box-shadow: none !important;
-	outline: none !important;
-	border-style: unset !important;
-	text-decoration: none !important;
-}
+	.embeddedServiceLiveAgentStateChatInputFooter.dynamicResizeTextOneRow .chasitorText {
+		padding: 15px 18px;
+	}
 
-.helpButtonLabel {
-	display: inline-block !important;
-	line-height: 16.67px !important;
-}
+    .embeddedServiceLiveAgentStateChatEventMessage .eventMessage>.uiOutputRichText,
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-truncate,
+    .embeddedServiceLiveAgentStateChatInputFooter .chasitorText {
+        color: white !important;    
+    }
+        
+    .embeddedServiceLiveAgentStateChatInputFooter .embeddedServiceLiveAgentStateChatAction.Upload,
+    .embeddedServiceLiveAgentStateChatInputFooter .embeddedServiceLiveAgentStateChatAction.Remove {
+        background-color: #2D132A !important;
+        border: 1px solid #2D132A !important;
+    }
+        
+    .embeddedServiceLiveAgentStateChatInputFooter .fileName, .embeddedServiceLiveAgentStateChatInputFooter .fileDescription {
+        color: white !important;    
+    }
+        
+    .embeddedServiceLiveAgentStateChatBubble.chasitor .chatContent,
+    .cChatButton .messageContent {
+        background-color: #025550 !important;    
+    }
+        
+    .embeddedServiceLiveAgentStateChatInputFooter .fileUploadControls {
+        background-color: #2D132A !important;     
+    }
+        
+    .avatar {
+        background-color: #2D132A !important;  
+    }
+        
+    .cChatButton .buttonMinimized {
+        background-color: #025550 !important;
+        border-color: #025550 !important;
+    }
+        
+    .cPrechatCaseArea textarea, .cPrechatContactInfo input {
+		background-color: #2D132A !important;
+		border-color: #2D132A !important;
+		color: #C2B2C2;
+    }
 
-span.fileDescription.uiOutputText, span.fileName.uiOutputText, .uiOutputRichText a  {
-	color: black !important;
-}
+    .cPrechatCaseArea textarea {
+        height: 128px !important;
+    }
 
-.dialogButtonContainer {
-	display: flex !important;
-	justify-content: space-between !important;
-	flex-direction: row-reverse !important;
-	width: 290px !important;
-	margin: auto !important;
-	padding: 0 0px 16px !important;
-}
+	.cPrechatCaseArea textarea::placeholder, .cPrechatContactInfo input::placeholder {
+		color: #C2B2C2;
+    }
 
-.dialog-button-0 {
-	width: 236px;
-	height: 44px;
-}
-
-.message, .embeddedServiceSidebarMinimizedDefaultUI .content {
-	background-color: #F8FF13 !important;
-	border: none !important;
-	padding: 0 0 0 0 !important;
-	margin: 0 0 0 0  !important;
-	font-family: medium-content-sans-serif-font,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif !important;
-	font-style: normal;
-	font-weight: bold;
-	font-size: 12px;
-	line-height: 16.67px;
-	display: flex;
-	align-items: center;
-	text-transform: uppercase;
-	color:#000000;
-	text-decoration: none;
-}
-
-.embeddedServiceHelpButton .helpButton .helpButtonEnabled:hover::before, .embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus::before {
-	background-color: white;
-}
-
-.messageContent path {
-	stroke: black;
-	fill: black;
-}
-
-.embeddedServiceSidebarButton .label, .embeddedServiceSidebarButton:disabled .label, .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
-	color: black;
-}
-
-.dialog-button-1 .bBody, .helpButtonEnabled .embeddedServiceIcon::before, .helpButtonEnabled .embeddedServiceIcon svg, .embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled   {
-	display: none !important;
-}
-
-.embeddedServiceSidebarDialogState .dialogButton,
-.embeddedServiceSidebarDialogState .dialogButton:focus,
-.embeddedServiceSidebarDialogState .dialogButton:hover {
-	background-color: #F8FF13;
-	border-color: #F8FF13;
-	color:#000000;
-	padding: 10px 16px 10px 16px;
-	box-shadow: none;
-	outline: none;
-	border-style: unset;
-	text-decoration: none;
-}
-
-.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):focus,
-.embeddedServiceSidebarButton.uiButton--inverse:not(:disabled):hover,
-.embeddedServiceSidebarButton.uiButton--inverse, .embeddedServiceSidebarButton.uiButton--inverse:disabled {
-	background-color: #F8FF13;
-	margin-bottom: 8px;
-}
-
-.embeddedServiceSidebarButton.uiButton--inverse .label {
-	color:#000000 !important;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter .chasitorControls .uiInput {
-	border: 1px solid #D9D9D9;
-}
-
-.embeddedServiceLiveAgentStateChat .messageArea {
-	border: none;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:hover,
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus,
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:active {
-	color: #787c80 !important;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-button:focus {
-	box-shadow: none;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
-	border: none !important;
-	box-shadow: none !important;
-}
-
-.embeddedServiceSidebarButton:not(:disabled):focus, .embeddedServiceSidebarButton:not(:disabled):hover,
-.embeddedServiceLiveAgentStateChat .endChatContainer .endChatButton {
-	background: var(--lwc-colorBrandSecondary,#f8ff13);
-	margin-bottom: 8px;
-}
-
-.uiButton--default:hover .label, .uiButton--default:focus .label {
-	color:black;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter {
-	margin-bottom: 0px !important;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu .slds-dropdown-trigger_click.slds-is-open .slds-button {
-	color:#787c80;
-}
-
-.embeddedServiceLiveAgentStateChat .messageArea:focus {
-	border: none;
-}
-
-.embeddedServiceLiveAgentStateWaiting .loadingBall,
-.embeddedServiceLiveAgentQueuePosition .embeddedServiceLoadingBalls .loadingBall {
-	background-color: #787c80 !important;
-}
-
-.embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a {
-    color: #5a5d60 !important;
-}
+             
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a:focus,
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items {
+        background-color: #2D132A !important;   
+    }
+        
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item>a,
+    .embeddedServiceLiveAgentStateChatInputFooter .footerMenuWrapper .footer-menu-items .slds-dropdown__item {
+        background-color: #2D132A !important;    
+        border-color: #2D132A !important;
+    }
+        
 
 </style>
 
@@ -361,65 +599,61 @@ document.addEventListener(
 );
 
 var title = document.title;
-	var accountId = new URLSearchParams(window.location.search).get('accountID');
+
+	var accountId  = new URLSearchParams(window.location.search).get('accountID');
     accountId = (accountId == "undefined") ? null : accountId;
-    var language = 'ru';
-    var showContact = new URLSearchParams(window.location.search).get('showContact');
+    var language =  new URLSearchParams(window.location.search).get('language');
+   // var language = document.querySelector('html').getAttribute('lang');
+    language = (language == 'en') ? 'en-US' : (language == 'kk') ? 'lb' : language;
+	var settings = new Map();
+	settings.set('lb', {buttonId: "5732p0000008bwg", label: "ҚОЛДАУ ЧАТЫ", loading: 'Жүктелуде...'});
+	settings.set('en-US', {buttonId: "5732p0000008bwb", label: "SUPPORT CHAT", loading: 'Loading...'});
+	settings.set('ru', {buttonId: "5732p0000008bwl",  label: "ЧАТ ПОДДЕРЖКИ", loading: 'Загрузка...'});
+
 	
 	var initESW = function(gslbBaseURL) {
     embedded_svc.settings.avatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
     embedded_svc.settings.chatbotAvatarImgURL = 'https://parimatch.my.salesforce.com/sfc/dist/version/download/?oid=00D2p00000139LC&ids=0682p00000IBVx0AAH&d=/a/2p0000002WZk/yvHSdKsnO5Oleeq8kNuO.gtRUyuu8P0dmdZoe1aGxcA&operationContext=DELIVERY&viewId=05H2p0000024IzSEAU&dpt=';
     embedded_svc.settings.displayHelpButton = true;
     embedded_svc.settings.language = language;
-    embedded_svc.settings.defaultMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
-    embedded_svc.settings.disabledMinimizedText = (language == 'ru') ? 'ЧАТ ПОДДЕРЖКИ' : 'SUPPORT CHAT';
-    embedded_svc.settings.loadingText = (language == 'ru') ? 'Загрузка...' : 'Loading...';
-    embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
+    embedded_svc.settings.defaultMinimizedText = settings.get(language).label;
+    embedded_svc.settings.disabledMinimizedText = settings.get(language).label;
+    embedded_svc.settings.loadingText = settings.get(language).loading;
+
+	embedded_svc.settings.prepopulatedPrechatFields = {FirstName: "Preview", LastName: accountId};
+
+	embedded_svc.settings.extraPrechatFormDetails = (accountId) ?
     [
-        {"label":"CaseId", "transcriptFields": ["CaseId"]},
-        {"label":"Name",  "transcriptFields": ["PreChat_Form_Name__c"]},
+		{"label":"CaseId", "transcriptFields": ["CaseId"]},
+		{"label":"Name",  "transcriptFields": ["PreChat_Form_Name__c"]},
         {"label":"Email", "transcriptFields": ["PreChat_Form_Email__c"]},
         {"label":"Phone", "transcriptFields": ["PreChat_Form_Phone__c"]},
-        {"label":"Subject", "transcriptFields": ["PreChat_Form_Subject__c"]},
-        {"label":"Case Area Reason", "transcriptFields": ["PreChat_Case_Area_Reason__c"]},
-        {"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
+		{"label":"Subject", "transcriptFields": ["PreChat_Form_Subject__c"]},
+		{"label":"Case Area Reason", "transcriptFields": ["PreChat_Case_Area_Reason__c"]},
+		{"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
         {"label":"PreChat Form AccountID", "transcriptFields": ["PreChat_Form_AccountID__c"], "value" : accountId},
         {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false},
-        {"label":"Is Logged", "transcriptFields": ["Is_Logged__c"], "value" : "true"}
+		{"label":"Is Logged", "transcriptFields": ["Is_Logged__c"], "value" : "true"}
     ] :
- 
+
     [
-        {"label":"CaseId", "transcriptFields": ["CaseId"]},
+		{"label":"CaseId", "transcriptFields": ["CaseId"]},
         {"label":"Name",  "transcriptFields": ["PreChat_Form_Name__c"]},
         {"label":"Email", "transcriptFields": ["PreChat_Form_Email__c"]},
         {"label":"Phone", "transcriptFields": ["PreChat_Form_Phone__c"]},
-        {"label":"Subject", "transcriptFields": ["PreChat_Form_Subject__c"]},
-        {"label":"Case Area Reason", "transcriptFields": ["PreChat_Case_Area_Reason__c"]},
-        {"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
+		{"label":"Subject", "transcriptFields": ["PreChat_Form_Subject__c"]},
+		{"label":"Case Area Reason", "transcriptFields": ["PreChat_Case_Area_Reason__c"]},
+		{"label":"Prechat Dialog", "transcriptFields": ["Prechat_Dialog__c"]},
         {"label":"Start Url", "transcriptFields": ["Prechat_StartUrl__c"], "value": window.location.href,"displayToAgent":false}
     ];
-    if (showContact == 'true') {
-       embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
-    } else {
-        embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,
-            "fieldName":"LastName",
-            "isExactMatch":false,
-            "label":"Last Name"}],"entityName":"Contact","showOnCreate":false},{
-            "entityName":"Case",
-            "entityFieldMaps": [{
-                "doCreate":false,
-                "doFind":false,
-                "fieldName":"Subject",
-                "isExactMatch":false,
-                "label":"Subject"
-            }]
-        }];
-    }
-        embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+
+ 	embedded_svc.settings.extraPrechatInfo = [{"entityFieldMaps":[{"doCreate":false,"doFind":false,"fieldName":"LastName","isExactMatch":true,"label":"Last Name"}],"entityName":"Contact","showOnCreate":true}];
+
+    embedded_svc.settings.enabledFeatures = ['LiveAgent'];
     embedded_svc.settings.entryFeature = 'LiveAgent';
 
-    embedded_svc.init(
-        'https://parimatch.my.salesforce.com',
+ 	embedded_svc.init(
+		'https://parimatch.my.salesforce.com',
         'https://parimatchchat.secure.force.com/surveychat',
             gslbBaseURL,
             '00D2p00000139LC',
@@ -427,8 +661,8 @@ var title = document.title;
             {
                 baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
                 deploymentId: '5722p0000000G2t',
-                buttonId: '5732p0000004Tnn',
-                baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
+                buttonId: settings.get(language).buttonId,
+				baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
                 eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2p0000008PvdEAE_177ee4a5348',
                 isOfflineSupportEnabled: false
             }
@@ -436,13 +670,16 @@ var title = document.title;
 };
 
 if (!window.embedded_svc) {
-    var s = document.createElement('script');
-    s.setAttribute('src', 'https://parimatch.my.salesforce.com/embeddedservice/5.0/esw.min.js');
-    s.onload = function() {
-        initESW(null);
-    };
-    document.body.appendChild(s);
-} else {
-    initESW('https://service.force.com');
-}
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://parimatch.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+
 </script>
+        </body>
+    </html>
