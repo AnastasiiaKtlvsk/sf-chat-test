@@ -604,6 +604,9 @@ var title = document.title;
     accountId = (accountId == "undefined") ? null : accountId;
     var language =  new URLSearchParams(window.location.search).get('language');
    // var language = document.querySelector('html').getAttribute('lang');
+   if (languge == null) {
+   	language = 'en-US';
+   }
     language = (language == 'en') ? 'en-US' : (language == 'kk') ? 'lb' : language;
 	var settings = new Map();
 	settings.set('lb', {buttonId: "5732p0000008bwg", label: "ҚОЛДАУ ЧАТЫ", loading: 'Жүктелуде...'});
